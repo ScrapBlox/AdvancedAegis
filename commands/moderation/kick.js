@@ -27,7 +27,7 @@ module.exports = {
                 .setDescription('The reason for kicking')),
     async execute(interaction) {
         const targetMember = interaction.options.getMember('member'); // Get member to ban
-        const reason = interaction.options.getString('reason') || 'No reason provided';
+        const reason = `${interaction.options.getString('reason')} (kicked by ${interaction.user})` || `No reason provided (kicked by > ${interaction.user})`;
         const guildName = interaction.guild.name;
 
         if (!targetMember) {
@@ -74,7 +74,7 @@ module.exports = {
 
                 const PublicLogEmbed = new EmbedBuilder()
                 .setAuthor({
-                    name: `${targetMember.user.username} has been kicked\n**Reason: **${reason}`,
+                    name: `${targetMember.user.username} has been kicked`,
                 })
                 .setDescription(`**[${StrikeScore} -> Kick]**\n${reason}`)
                 .setColor("#f50000")

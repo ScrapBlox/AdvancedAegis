@@ -4,7 +4,6 @@ const { Logger } = require("term-logger");
 const loadEvents = require('./eventLoader'); // [BACK SOON™] Adjust path if needed
 const {dotenv} = require("dotenv").config();
 
-
 //require('./deploy_commands');
 require('./cleanup');
 
@@ -25,7 +24,6 @@ global.client = new Client({
     ]
 });
 
-
 // Load Events
 try {
     loadEvents(client);
@@ -34,7 +32,6 @@ try {
     Logger.error(`Error loading events: ${err.message}`);
     process.exit(1); // Exit if events fail to load
 }
-
 
 client.commands = new Collection();
 

@@ -58,7 +58,7 @@ module.exports = {
                 // if (!results) { return };
                 const StrikeScore = results[0]?.strike_score || 0;
                 const newquery = `REPLACE INTO warnings (user_id,guild_id,strike_score,expiry_date)
-                VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 5 MINUTE))
+                VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 30 DAY))
                 `;
                 pool.execute(newquery, [userId,guildId,StrikeScore+strikelevel], async (err, newresults) => {
                     if (err) {

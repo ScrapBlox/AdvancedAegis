@@ -77,7 +77,7 @@ module.exports = {
 
                         const PublicLogEmbed = new EmbedBuilder()
                         .setAuthor({
-                            name: `${targetMember.user.username} has been banned\n**Reason: **${reason}`,
+                            name: `${targetMember.user.username} has been banned`,
                         })
                         .setDescription(`**[${StrikeScore} -> Ban]**\n${reason}`)
                         .setColor("#f50000")
